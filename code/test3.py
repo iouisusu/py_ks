@@ -16,6 +16,8 @@ from paddle.fluid import core
 from paddle.fluid.param_attr import ParamAttr
 from PIL import Image, ImageEnhance
 
+paddle.enable_static()
+
 target_size = [3, 512, 512]
 mean_rgb = [127.5, 127.5, 127.5]
 data_dir = "../data/data1"
@@ -23,7 +25,7 @@ eval_file = "eval.txt"
 use_gpu = True
 place = fluid.CUDAPlace(0) if use_gpu else fluid.CPUPlace()
 exe = fluid.Executor(place)
-save_freeze_dir = "./freeze-model"
+save_freeze_dir = "../code/freeze-model"
 [inference_program, feed_target_names, fetch_targets] = fluid.io.load_inference_model(dirname=save_freeze_dir,
                                                                                       executor=exe)
 
