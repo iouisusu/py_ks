@@ -163,7 +163,7 @@ def init_log_config():
     log_path = os.path.join(os.getcwd(), 'logs')
     if not os.path.exists(log_path):
         os.makedirs(log_path)
-    log_name = os.path.join(log_path, 'train.log')
+    log_name = os.path.join(log_path, 'train1.log')
     sh = logging.StreamHandler()
     fh = logging.FileHandler(log_name, mode='w')
     fh.setLevel(logging.DEBUG)

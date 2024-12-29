@@ -41,7 +41,7 @@ train_parameters = {
     "pretrained": False,  # 是否使用预训练的模型
     "pretrained_dir": "data/data6593/DenseNet_pretrained",
     "mode": "train",
-    "num_epochs": 5,  # ----------120,
+    "num_epochs": 20,  # ----------120,
     "train_batch_size": 4,  # ----------12,
     "mean_rgb": [127.5, 127.5, 127.5],  # 常用图片的三通道均值，通常来说需要先对训练数据做统计，此处仅取中间值
     "use_gpu": True,
@@ -63,21 +63,11 @@ train_parameters = {
         "rotate_prob": 0.5,
         "rotate_range": 14
     },
-    # "image_enhance_strategy": {  # 简化图像增强相关策略
-    #     "need_distort": False,
-    #     "need_rotate": False,
-    #     "need_crop": False,
-    #     "need_flip": False,
-    #     "hue_prob": 0,
-    #     "contrast_prob": 0,
-    #     "saturation_prob": 0,
-    #     "brightness_prob": 0,
-    #     "rotate_prob": 0
-    # },
+
     "early_stop": {
         "sample_frequency": 20,  # 减少到每20个batch检查一次50,
         "successive_limit": 3,  # 减少到3次 5,
-        "good_acc1": 0.60  # 降低到60%0.90
+        "good_acc1": 0.90  # 降低到60%0.90
     },
     # "rsm_strategy": {
     #     "learning_rate": 0.002,
@@ -163,7 +153,7 @@ def init_log_config():
     log_path = os.path.join(os.getcwd(), 'logs')
     if not os.path.exists(log_path):
         os.makedirs(log_path)
-    log_name = os.path.join(log_path, 'train.log')
+    log_name = os.path.join(log_path, 'train1.log')
     sh = logging.StreamHandler()
     fh = logging.FileHandler(log_name, mode='w')
     fh.setLevel(logging.DEBUG)
